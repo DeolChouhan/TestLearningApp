@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Models.UserSelectedSubjectModel>
+
+@{
+    ViewBag.Title = "Manage Subjects";
+}
+<div class="row">
+    <input type="hidden" id="hdnType" />
+    <div class="col-lg-12">
+        <!--breadcrumbs start -->
+        <ul class="breadcrumb">
+            <li><a><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#">Manage</a></li>
+
+        </ul>
+        <!--breadcrumbs end -->
+    </div>
+    <div class="col-lg-12">
+        <section class="panel">
+            <div class="panel-body">
+                <div class="adv-table editable-table ">
+                    <div class="clearfix">
+                        <div class="btn-group" style="float:right;margin:10px">
+                            <a class="btn btn-primary" href="/Home/PrintPDF">
+                                Print PDF <i class="fa fa-file-pdf-o"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="space15"></div>
+                    <div class="card card-fluid">
+                        <table class="table table-striped table-hover table-bordered">
+                            <tr>
+
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Subject
+                                </th>
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                       @item.User_Name
+                                    </td>
+                                    
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                  
+                                        <select class="form-control" onchange="updateStatus(this,@item.Subject_ID)">
+                                            <option value="1" selected="@(item.Is_Active ==true ? "selected" : null)">Active</option>
+                                            <option value="0" selected="@(item.Is_Active == false ? "selected" : null)">In-Active</option>
+                                        </select>
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script>
+      function updateStatus(idx,id) {
+        if (confirm("Are you sure? You want to change status")) {
+             var data = {
+                 Id: id,
+                 Status: $(idx).val()
+            }
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("UpdateStauts", "Home")",
+                data: data,
+                // contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    toastr.success("Status Change Successfully.", "Success");
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        }
+
+    }
+
+</script>
+

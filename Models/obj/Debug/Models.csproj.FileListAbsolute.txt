@@ -1,0 +1,6 @@
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\Models\bin\Debug\Models.dll
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\Models\bin\Debug\Models.pdb
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\Models\obj\Debug\Models.dll
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\Models\obj\Debug\Models.pdb
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\Models\obj\Debug\Models.csprojAssemblyReference.cache

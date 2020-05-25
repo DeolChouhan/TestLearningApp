@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Models.UserSelectedSubjectModel>
+
+<link href="~/Content/AdminTemplate/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/Content/AdminTemplate/css/bootstrap-reset.css" rel="stylesheet">
+<table class="table table-striped table-hover table-bordered">
+    <tr>
+
+        <th>
+            Name
+        </th>
+        <th>
+            Subject
+        </th>
+        <th>
+            Status
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.User_Name
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+
+                @item.Is_Active
+            </td>
+
+        </tr>
+    }
+
+</table>

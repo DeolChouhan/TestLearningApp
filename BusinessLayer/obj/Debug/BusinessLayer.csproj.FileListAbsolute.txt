@@ -1,0 +1,14 @@
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\BusinessLayer\bin\Debug\BusinessLayer.dll
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\BusinessLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\BusinessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\BusinessLayer\bin\Debug\Models.dll
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\BusinessLayer\bin\Debug\EntityFramework.dll
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\BusinessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\BusinessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\BusinessLayer\bin\Debug\Models.pdb
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\BusinessLayer\bin\Debug\EntityFramework.xml
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\BusinessLayer\obj\Debug\BusinessLayer.csprojAssemblyReference.cache
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\BusinessLayer\obj\Debug\BusinessLayer.csproj.CopyComplete
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\BusinessLayer\obj\Debug\BusinessLayer.dll
+C:\Users\Devil\Documents\Visual Studio 2017\Projects\LearningManagement\BusinessLayer\obj\Debug\BusinessLayer.pdb

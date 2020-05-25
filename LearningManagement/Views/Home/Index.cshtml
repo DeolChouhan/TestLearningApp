@@ -1,0 +1,201 @@
+﻿@model Models.User
+@using System.Configuration;
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mosaddek">
+    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <link rel="shortcut icon" href="~/Content/Login/img/favicon.png">
+
+    <title>Login</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet"
+          type="text/css"
+          href="~/Content/Login/vendor/bootstrap/css/bootstrap.min.css" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet"
+          type="text/css"
+          href="~/Content/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet"
+          type="text/css"
+          href="~/Content/Login/fonts/iconic/css/material-design-iconic-font.min.css" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login/vendor/animate/animate.css" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login/css/util.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Login/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="~/Scripts/toaster/toastr.min.css" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        .toast-message {
+            text-align: left !important;
+        }
+
+        #loading {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.8);
+            z-index: 1000;
+        }
+
+        #loadingcontent {
+            display: table;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #loadingspinner {
+            display: table-cell;
+            vertical-align: middle;
+            width: 100%;
+            text-align: center;
+            font-size: larger;
+            padding-top: 80px;
+        }
+
+        input {
+            outline: none;
+            border: none;
+        }
+
+        textarea {
+            outline: none;
+            border: none;
+        }
+
+        input:focus {
+            border-color: transparent !important;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="limiter">
+        <div class="container-login100"
+             style="background-image: url('../../../../Content/Login/images/bg-01.jpg');">
+            <div class="wrap-login100">
+                @*@using (Ajax.BeginForm("LoginUser", "Login2", new AjaxOptions
+                    {
+                        OnSuccess = "OnSuccess",
+                        OnFailure = "OnFailure",
+                        LoadingElementId = "progress",
+                        OnBegin = "onBegin"
+                    }, new { autocomplete = "off" }))
+                    {*@
+                @using (Ajax.BeginForm("LoginUser", "Home", new AjaxOptions
+                {
+                    OnSuccess = "OnSuccess",
+                    OnFailure = "OnFailure",
+                    LoadingElementId = "progress",
+                    OnBegin = "onBegin"
+                }, new { autocomplete = "off" }))
+                {
+                    <div class="login100-form validate-form">
+                        <span class="login100-form-logo">
+                            <i class="fa fa-user"></i>
+                        </span>
+
+                        <span class="login100-form-title p-b-34 p-t-27">
+                            Log in
+                        </span>
+
+                        <div class="wrap-input100 validate-input"
+                             data-validate="Enter username">
+                            @*<input class="input100"
+                                type="text"
+                                name="username"
+                                placeholder="Username" />*@
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "input100", placeholder = "User ID" } })
+                            <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input"
+                             data-validate="Enter password">
+                            @*<input class="input100"
+                                type="password"
+                                name="pass"
+                                placeholder="Password" />*@
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "input100", type = "password", placeholder = "Password" } })
+                            <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                        </div>
+                        <div class="container-login100-form-btn">
+                            <button type="submit" class="login100-form-btn">
+                                Login
+                            </button>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="loading">
+        <div id="loadingcontent">
+            <p id="loadingspinner">
+                @*Wait...*@
+                <img src="~/Content/img/Spinner.gif" /><br />
+                Loading...
+            </p>
+        </div>
+    </div>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="~/Content/AdminTemplate/js/jquery.js"></script>
+    <script src="~/Content/AdminTemplate/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/toaster/toastr.min.js"></script>
+    <script type="text/javascript">
+
+        function OnSuccess(response) {
+            $("#loading").fadeOut();
+            if (response.Success) {
+                if (response.Message == "2") {
+                    window.location.href = "@Url.Action("Manage", "Home")";
+                } else {
+                     window.location.href = "@Url.Action("Subjects", "Home")";
+                }
+            } else {
+                toastr.error(response.Message, "");
+            }
+
+        }
+        function OnFailure(response) {
+            debugger;
+            $("#loading").fadeOut();
+            toastr.error(response, "");
+        }
+        function onBegin() {
+            $("#loading").fadeIn();
+
+        }
+    </script>
+
+</body>
+</html>
